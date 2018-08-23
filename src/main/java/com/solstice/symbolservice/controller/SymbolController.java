@@ -39,4 +39,13 @@ public class SymbolController {
         new HttpHeaders(),
         symbol == null ? HttpStatus.NOT_FOUND : HttpStatus.OK);
   }
+
+  @GetMapping("/symbols/{name}/id")
+  public ResponseEntity<Integer> getSymbolId(@PathVariable("name") String name) {
+    int symbolId = symbolService.findIdByName(name);
+    return new ResponseEntity<>(
+        symbolId,
+        new HttpHeaders(),
+        symbolId < 0 ? HttpStatus.NOT_FOUND : HttpStatus.OK);
+  }
 }

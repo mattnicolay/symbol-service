@@ -21,4 +21,14 @@ public class SymbolService {
   public Symbol findByName(String name) {
     return symbolRepository.findByName(name);
   }
+
+  public int findIdByName(String name) {
+    Symbol symbol = symbolRepository.findByName(name);
+
+    return (symbol == null ? -1 : symbol.getId());
+  }
+
+  public Symbol findById(long id) {
+    return symbolRepository.findById(id).get();
+  }
 }
