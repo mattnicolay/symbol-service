@@ -51,7 +51,7 @@ public class SymbolControllerTest {
   }
 
   @Test
-  public void testGetSymbolByName() throws Exception {
+  public void testGetSymbol() throws Exception {
     Symbol mockSymbolGoog = new Symbol("GOOG");
 
     when(symbolService.findByName(any(String.class))).thenReturn(mockSymbolGoog);
@@ -59,9 +59,20 @@ public class SymbolControllerTest {
   }
 
   @Test
-  public void testGetSymbolByNameNotFound() throws Exception {
+  public void testGetSymbolNotFound() throws Exception {
     mockMvc.perform(get("/symbols/FAIL")).andExpect(status().isNotFound());
   }
 
+  @Test
+  public void testGetSymbolId() throws Exception {
+    Symbol mockSymbolGoog = new Symbol("GOOG");
 
+    when(symbolService.findByName(any(String.class))).thenReturn(mockSymbolGoog);
+    mockMvc.perform(get("/symbols/GOOG/id")).andExpect(status().isOk());
+  }
+
+  @Test
+  public void testGetSymbolIdNotFound() throws Exception {
+    mockMvc.perform(get("/symbols/FAIL/id")).andExpect(status().isNotFound());
+  }
 }

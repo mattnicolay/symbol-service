@@ -1,0 +1,38 @@
+server:
+  port:
+    8181
+
+spring:
+  datasource:
+    driver-class-name:
+      com.mysql.jdbc.Driver
+    url:
+      jdbc:mysql://localhost:3306/stocks?allowPublicKeyRetrieval=true&useSSL=false
+    username:
+      dbuser
+    password:
+      dbpassword
+
+  jackson:
+    serialization:
+      fail-on-empty-beans:
+        false
+
+  jpa:
+    generate-ddl:
+      true
+    hibernate:
+      ddl-auto:
+        create-drop
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.MySQL5Dialect
+
+---
+spring:
+  profiles:
+    cloud
+  datasource:
+    url:
+      ${vcap.services.mysql.credentials.jdbcUrl}
