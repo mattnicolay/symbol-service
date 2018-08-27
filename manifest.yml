@@ -1,0 +1,15 @@
+applications:
+- name: symbol-service
+  path: ./build/libs/symbol-service-0.0.1-SNAPSHOT.jar
+  buildpack:
+    java_buildpack
+  disk_quota: 1G
+  instances: 1
+  memory: 1G
+  env:
+    spring.profiles.active: cloud
+  services:
+  - service-registry
+  - config-server
+  - mysql
+  stack: cflinuxfs2
