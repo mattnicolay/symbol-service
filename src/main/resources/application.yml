@@ -1,6 +1,6 @@
 server:
   port:
-    8181
+    8081
 
 spring:
   datasource:
@@ -23,7 +23,7 @@ spring:
       true
     hibernate:
       ddl-auto:
-        create-drop
+        create
     properties:
       hibernate:
         dialect:
