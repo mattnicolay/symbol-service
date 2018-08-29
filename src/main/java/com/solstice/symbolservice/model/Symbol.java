@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class Symbol {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @JsonProperty("SymbolId")
   private int id;
 
