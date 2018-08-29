@@ -23,7 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
-public class SymbolServiceTest {
+public class  SymbolServiceTest {
 
   @Mock
   private SymbolRepository symbolRepository;
